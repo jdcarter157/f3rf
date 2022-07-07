@@ -158,3 +158,4 @@ class IndexController extends Controller
     }
 }
 // yoyo
+echo 'yoyo';
