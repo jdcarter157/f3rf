@@ -1,0 +1,36 @@
+<div>
+    <h2 class='d-flex justify-content-center align-items-center my-5'>My DMs</p>
+</div>
+<repeat group="{{ @msg }}" value="{{ @item }}">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <div class="people-nearby">
+                    <div class="nearby-user whitelines" id="pepe">
+                        <div class="row align-items-center">
+                            <div class="col-md-2 col-sm-2">
+                                <img src="{{ @item['image_URL']}}" alt="user" class="profile-photo-lg">
+                            </div>
+                            <div class="col-md-7 col-sm-7">
+                                <form action="{{ @homepath }}/profile/{{@item['user_id']}}" method="get">
+                                    <button type="submit" class="profile-link">
+                                      <h5>{{ @item['first_name']}} {{ @item['last_name']}}</h5>
+                                    </button>
+                                  </form>
+                            </div>
+                            <div class="col col-lg-2">
+                                <form method="get" action="{{ @homepath }}/dm/{{@item['user_id']}}">
+                                    <button type="submit" class="btn btn-secondary" id="message_button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                                            <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"></path>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</repeat>

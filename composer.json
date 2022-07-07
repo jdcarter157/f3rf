@@ -1,0 +1,12 @@
+{
+    "name": "socialmedia/refactor",
+    "authors": [
+        {
+            "name": "Krzysztof",
+            "email": "irateboolean@gmx.com"
+        }
+    ],
+    "require": {
+        "bcosca/fatfree": "3.8.0"
+    }
+}
