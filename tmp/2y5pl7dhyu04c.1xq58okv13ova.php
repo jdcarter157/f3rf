@@ -32,6 +32,11 @@
                             <?= (date_format(date_create($item['created']), "m/d/Y"))."
 " ?>
                         </p>
+                        <?php if ($item['user_id']== $SESSION['id']): ?>
+                            <form method="GET">
+                            <input type="submit" value="delete" id="delete_post" name="delete_post">
+                            </form>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

@@ -4,14 +4,18 @@
         <label for="inputEmail" class="sr-only">Username</label>
         <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required=""
             autofocus="" />
+            <check if="{{isset(@GET.email)}}">
             <check  if="{{ @GET.email == 'invalid' }}">
                 <span style="color:red;">Invalid Username, Try Again</span><br>
+            </check>
             </check>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
             required="" />
+            <check if="{{isset(@GET.password)}}">
             <check  if="{{ @GET.password == 'invalid' }}">
                 <span style="color:red;">Invalid Password, Try Again.</span>
+            </check>
             </check>
         <button class="btn mx-5 btn-lg btn-light my-5"
         type="submit">
