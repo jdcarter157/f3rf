@@ -31,6 +31,11 @@
                         <p class="post-created">
                             {{date_format(date_create(@item['created']), "m/d/Y")}}
                         </p>
+                        <check if="{{@item['user_id']== @SESSION.id}}">
+                            <form method="GET">
+                            <input type="submit" value="delete" id="delete_post" name="delete_post">
+                            </form>
+                        </check>
                     </div>
                 </div>
             </div>

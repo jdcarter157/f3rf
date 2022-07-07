@@ -91,6 +91,14 @@ class IndexController extends Controller
         //reload newsfeed page with updated post 
         $this->f3->reroute('/newsfeed');
     }
+    function removePost(\Base $f3){ 
+        if(isset($_POST['delete_post'])) {
+        
+        $post_id= $f3->get('p.post_id');
+        $this->posts->remove($post_id);
+        $f3->reroute('/newsfeed');
+        }
+     }
     function logout() {
         // clear user session, return to root
         $this->f3->clear('SESSION.id');
@@ -157,5 +165,3 @@ class IndexController extends Controller
         }
     }
 }
-// yoyo
-echo 'yoyo';

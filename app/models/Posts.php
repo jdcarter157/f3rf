@@ -51,4 +51,7 @@ class Posts {
     
         return $result;
         }
+        public function remove($post_id){
+            $result = $this->db->exec('DELETE FROM post WHERE post_id = ?', [$post_id]);
+        }
 }
