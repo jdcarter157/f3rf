@@ -91,13 +91,17 @@ class IndexController extends Controller
         //reload newsfeed page with updated post 
         $this->f3->reroute('/newsfeed');
     }
-    function removePost(\Base $f3){ 
-        if(isset($_POST['delete_post'])) {
-        
-        $post_id= $f3->get('p.post_id');
-        $this->posts->remove($post_id);
+    function removePost(\Base $f3, array $args=[]){ 
+        $this->posts->remove($args['postID']);
         $f3->reroute('/newsfeed');
-        }
+        
+     }
+     function editPost(\Base $f3, array $args=[]){ 
+        $edit_text= $this->f3->get('POST.edit');
+        $this->posts->edit($edit_text,$args['editID']);
+        $f3->reroute('/newsfeed');
+
+        
      }
     function logout() {
         // clear user session, return to root

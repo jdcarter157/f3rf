@@ -33,9 +33,23 @@
 " ?>
                         </p>
                         <?php if ($item['user_id']== $SESSION['id']): ?>
-                            <form method="GET">
+                            <form action='<?= ($homepath) ?>/removepost/<?= ($item["post_id"]) ?>' method='post'>
                             <input type="submit" value="delete" id="delete_post" name="delete_post">
                             </form>
+                        <?php endif; ?>
+                        <?php if ($item['user_id']== $SESSION['id']): ?>
+                            <form action='<?= ($homepath) ?>/editpost/<?= ($item["post_id"]) ?>' method="post">
+                           
+                           
+                            <div id="editpost" style="display: none">
+                                <input type="text" id="edit" name="edit">
+                                <input type="submit" value="submit changes" >
+                                
+                            </div>
+                            <button type="reset" id="edit_text" name="edit_text" onclick="showTextbox()">Edit Post</button>
+
+                            </form>
+                          
                         <?php endif; ?>
                     </div>
                 </div>
@@ -43,3 +57,11 @@
         </div>
     <?php endforeach; ?>
 </div>
+<script>
+    function showTextbox() {
+    var x = document.getElementById("editpost");
+      if (x.style.display === "none") {
+          x.style.display = "block";}
+          else{x.style.display="none"}
+        }
+</script>

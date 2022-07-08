@@ -51,7 +51,12 @@ class Posts {
     
         return $result;
         }
-        public function remove($post_id){
-            $result = $this->db->exec('DELETE FROM post WHERE post_id = ?', [$post_id]);
+    public function remove($post_id){
+        $result = $this->db->exec('DELETE FROM post WHERE post_id = :post_id', array(":post_id"=>$post_id));
+        }
+    public function edit($edit_text,$post_id){
+        $result = $this->db->exec('UPDATE post SET content=:content WHERE post_id = :post_id', array(":content"=>$edit_text,
+        ":post_id"=>$post_id));
+        return $result;
         }
 }
